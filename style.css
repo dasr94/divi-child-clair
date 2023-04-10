@@ -1,0 +1,29 @@
+/*
+ Theme Name:     Divi Child DASR
+ Theme URI:      http://danielsanchez.amarusv.com/
+ Description:    Divi Child Theme 
+ Author:         Daniel Antonio Sánchez Romero
+ Author URI:     http://danielsanchez.amarusv.com/
+ Template:       Divi
+ Version:        1.0.2
+*/
+ 
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+@media (min-width: 981px) {
+	.et_pb_gutters3 .et_pb_column, .et_pb_gutters3.et_pb_row .et_pb_column {
+		
+		
+	}
+	.et_pb_gutters3 .et_pb_column_1_3, .et_pb_gutters3.et_pb_row .et_pb_column_1_3 {
+		
+	}
+}
+.custom-grid {
+	height: 389px;
+	margin-top: 10px;
+	margin-right: 0 !important;
+	padding: 5px;
+	width: 29%;
+}
