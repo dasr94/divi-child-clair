@@ -297,13 +297,22 @@
 							endif;
 						?>
 						</nav>
-					<?php endif; ?>
+					<?php endif; ?> 
 
 					<?php
 					if ( ! $et_top_info_defined && ( ! $et_slide_header || is_customize_preview() ) ) {
-						et_show_cart_total( array(
-							'no_text' => false,
-						) );
+						/*et_show_cart_total( array(
+							'no_text' => true,
+						) );*/
+						$cart_count = WC()->cart->get_cart_contents_count();
+						?>
+						<a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="et-cart-info">
+						  
+						  <?php if ($cart_count > 0) : ?>
+							<span class="et-cart-count" style="color: #ec9196; font-size: 16px;"><?php echo esc_html($cart_count); ?></span>
+						  <?php endif; ?>
+						</a>
+					<?php
 					}
 					?>
 
