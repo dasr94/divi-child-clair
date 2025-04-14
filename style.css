@@ -1,11 +1,11 @@
 /*
  Theme Name:     Divi Child DASR
- Theme URI:      http://danielsanchez.amarusv.com/
+ Theme URI:      https://shuttermultimediasv.com/
  Description:    Divi Child Theme 
  Author:         Daniel Antonio Sánchez Romero
- Author URI:     http://danielsanchez.amarusv.com/
+ Author URI:     https://shuttermultimediasv.com/
  Template:       Divi
- Version:        1.0.2
+ Version:        1.1.2
 */
  
  
@@ -27,3 +27,17 @@
 	padding: 5px;
 	width: 29%;
 }
+
+
+
+.et-cart-icon {
+	content: "\e07a"; 
+	margin-right: 10px; 
+	position: relative;
+}
+
+/* Alinear el saludo personalizado con el carrito */
+.menu-item-right {
+    float: right;
+}
+

@@ -3,6 +3,7 @@ function my_theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_script( 'lottie_js', get_stylesheet_directory_uri() . '/lottie.js', array(), filemtime( get_stylesheet_directory_uri() . '/lottie.js' ) , false );
     wp_enqueue_script( 'qrcode_js', get_stylesheet_directory_uri() . '/qrcode.min.js', array('jquery'), filemtime( get_stylesheet_directory_uri() . '/qrcode.min.js' ) , false );
+    wp_enqueue_script( 'reveal_js', get_stylesheet_directory_uri() . '/scrollReveal.js', array('jquery'), filemtime( get_stylesheet_directory_uri() . '/scrollReveal.js' ) , false );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
@@ -660,4 +661,36 @@ add_action('init', 'add_action_init_zona');
 
 
 */
+
+// Mostrar un saludo personalizado al usuario en la barra del menú
+add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+function add_loginout_link( $items, $args ) {
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        $items .= '<li class="menu-item-right">Hola ' . $current_user->display_name . '!</li>';
+    }
+    return $items;
+}
+
+
+function personalizar_menu_vertical($item_output, $item, $depth, $args) {
+	 error_log('La función se está ejecutando.');
+    // Verifica si estás en la página "Mi cuenta".
+    if (is_account_page()) {
+        $nombre_menu_woocommerce = 'entry-content';
+
+        // Verifica si el menú actual es el menú de WooCommerce.
+        if (in_array($nombre_menu_woocommerce, $item->classes)) {
+            $item_output = preg_replace('/<a(.*?>)/', '<a$1<i class="fas fa-user"></i> ', $item_output);
+        }
+    }
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el', 'personalizar_menu_vertical', 10, 4);
+
+
+
+
+
+
 
